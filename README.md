@@ -25,4 +25,7 @@ To implement the code, include a target .json file with the tweet corpus and run
 
 ## get_parties
   To find who was throwing parties after the Golden Globes, we input the corpus of tweets related to the nominees and filter using a regEx * after party to figure out cased names associated with the parties. Function get_parties will be run when the ?command of the ? file is run. 
+  
+## spanish_functionality 
+  
 
