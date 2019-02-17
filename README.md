@@ -9,5 +9,11 @@ To implement the code, run the x file to begin.
 * collections
 * en_core_web_sm
 
-## 
+## categorize_tweet
+
+## top_ten_ents
+
+## top_ten_dict
+
+## top_ten_noms
 
