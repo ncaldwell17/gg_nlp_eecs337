@@ -9,6 +9,9 @@ To implement the code, include a target .json file with the tweet corpus and run
 * collections
 * en_core_web_sm
 
+## nominees, presenters, and winners
+  Our methodology to obtain the nominees, presenters, and winners is mostly the same - the only difference being the words that we used to identity which is which in the initial run-through. The results [<- what are the results] are then sorted using the following four functions to match them to their respective awards. 
+
 ## categorize_tweet
 
 ## top_ten_ents
