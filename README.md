@@ -5,7 +5,7 @@ To implement the code, include a target .json file with the tweet corpus and run
 
 ## Packages Used
 * json
-* spacy
+* spacy [did a better job at named-entity recognition and was faster] 
 * collections
 * en_core_web_sm
 
