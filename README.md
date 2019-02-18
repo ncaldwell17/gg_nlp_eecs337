@@ -1,7 +1,7 @@
 # Golden Globes Project
 Team Members: Harper Pack, Brandon Harris, Michael Cantu, Noah Caldwell-Gatsos
 
-To implement the code, include a target .json file with the tweet corpus and run the ? command of the ? file to begin.
+To implement the code, include a target .json file path in line 475 of gg_nlp.py and run the main function of the gg_nlp.py file to begin.
 
 ## Packages Used
 * json
