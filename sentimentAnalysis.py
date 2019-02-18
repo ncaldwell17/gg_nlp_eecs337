@@ -1866,15 +1866,15 @@ SENTIMENT_DICT = {
 
 SENTIMENT_SET = set(SENTIMENT_DICT.keys())
 
-def get_sentiment(list_of_tweets)
-    target_sentiment = {}
+def get_sentiment(list_of_tweets):
+    tweet_sentiment = {}
     for tweet in list_of_tweets:
         tweet_string = str(tweet)
         tweet_sentiment[tweet_string] = {'positive': 0, 'negative': 0, 'neutral': 0, 'both': 0}
 
     current_tweet = re.compile(tweet)
-    for tweet in processed_tweets:
-        if current_target.search(tweet) is not None:
+    for tweet in list_of_tweets:
+        if current_tweet.search(tweet) is not None:
             tweet_words = re.findall(r"['a-zA-Z]+\b", list_of_tweets)
             for word in tweet_words:
                 if word in SENTIMENT_SET:
@@ -1884,10 +1884,10 @@ def get_sentiment(list_of_tweets)
     #to percentify everything
     percent_tweet_sentiment = {}
     for tweet in tweet_sentiment:
-        positive = tweet_sentiment[target]['positive']
-        negative = tweet_sentiment[target]['negative']
-        neutral = tweet_sentiment[target]['neutral']
-        both = tweet_sentiment[target]['both']
+        positive = tweet_sentiment[tweet]['positive']
+        negative = tweet_sentiment[tweet]['negative']
+        neutral = tweet_sentiment[tweet]['neutral']
+        both = tweet_sentiment[tweet]['both']
         total = positive + negative + both + math.exp(-10)
 
     return tweet_sentiment, percent_tweet_sentiment
