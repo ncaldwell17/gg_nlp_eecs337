@@ -62,3 +62,6 @@ def categoryCluster(data):
             modelist.append((m,len(result_dict[i])))
     orderedList = sorted(modelist,key=itemgetter(1),reverse=True)
     return orderedList
+
+#filter the following: case sensitivity, word 'wins', word 'golden globes', 'golden globe', generic stop words
+#remove hyphens (a space before or after taken with them) i.e. ('- '), commas,

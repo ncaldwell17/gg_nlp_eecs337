@@ -3,6 +3,7 @@ import json
 from collections import Counter
 from spacy.lang.en import English
 import en_core_web_sm
+from categoryCluster import categoryCluster
 
 tweets = ' '
 tweet_load = []
@@ -377,7 +378,7 @@ def categorize_tweet(tweet):
                         else:
                             temp = 'required'
                     if temp == 'both':
-                        if is_required(tweet, a.wards[award]['required']):
+                        if is_required(tweet, awards[award]['required']):
                             if is_winner(tweet):
                                 awards[award]['tweets'] += tweet + ' | '
                             if is_presenter(tweet):
