@@ -7,6 +7,7 @@ Please note that while tweet corpi of the size of gg2015.json take a while to ru
 
 Finally, please be advised that to run the code on your machine you must:
 > Run master_vf.py
+AND
 > Have test.py and listInMedia.py in the same directory as master_vf.py
 
 You may additionally need to install "helper", "requests", and SpaCy.  
