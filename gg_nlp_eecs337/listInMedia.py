@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Feb 17 23:57:54 2019
+
+@author: harper
+"""
+
 import requests
 import helper
 
@@ -110,7 +118,7 @@ def listInMedia():
     return result_dict
 
 r = listInMedia()
-if 'true detective' in r["tv"]:
-    print('yes!!!')
+#if 'true detective' in r["tv"]:
+#    print('yes!!!')
 
 
