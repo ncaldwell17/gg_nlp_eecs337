@@ -5,8 +5,8 @@ Created on Fri Feb 15 20:33:25 2019
 
 @author: harper
 """
-load_path = "/Users/harper/Documents/19W/NLP/Project/gg2013.json"
-results_path = "/Users/harper/Documents/19W/NLP/Project/results.json"
+load_path = "./gg2013.json"
+results_path = "./results.json"
 
 import json
 import spacy
@@ -780,18 +780,26 @@ list_o_awards = make_awards_data(award_reader['tweets'])
 print("\n")
 list_of_hosts = make_hosts(host['tweets'])
 
-with open(results_path, "w") as file:
-    file.write("Hosts:")
-    file.write(str(list_of_hosts))
-    file.write("Awards:")
-    file.write(str(list_o_awards))
-    for award_name in awards:
-        file.write(award_name)
-        file.write("Winner: " + str(awards[award_name]['winners']))
-        if awards[award_name]['surprise']:
-            file.write("This seems to be a surprise win!")
-        if awards[award_name]['repeat']:
-            file.write("This seems to be a repeat win!")
-        file.write("Favorite: " + str(awards[award_name]['favorite']))
-        file.write("Nominees: " + str(awards[award_name]['nominees']))
-        file.write("Presenters: " + str(awards[award_name]['presenters']))
+dump_json = {}
+dump_json['host'] = []
+dump_json['host'].extend(list_of_hosts)
+dump_json['awards'] = awards
+
+print(dump_json)
+
+
+# with open(results_path, "w") as file:
+#     file.write("Hosts:")
+#     file.write(str(list_of_hosts))
+#     file.write("Awards:")
+#     file.write(str(list_o_awards))
+#     for award_name in awards:
+#         file.write(award_name)
+#         file.write("Winner: " + str(awards[award_name]['winners']))
+#         if awards[award_name]['surprise']:
+#             file.write("This seems to be a surprise win!")
+#         if awards[award_name]['repeat']:
+#             file.write("This seems to be a repeat win!")
+#         file.write("Favorite: " + str(awards[award_name]['favorite']))
+#         file.write("Nominees: " + str(awards[award_name]['nominees']))
+#         file.write("Presenters: " + str(awards[award_name]['presenters']))
