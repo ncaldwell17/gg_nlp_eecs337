@@ -7,7 +7,6 @@ Created on Sun Feb 17 23:57:54 2019
 """
 
 import requests
-import helper
 
 queryForMovies = '''SELECT ?movies ?moviesLabel
    WHERE
@@ -116,9 +115,4 @@ def listInMedia():
     result_dict['director'] = director_names
 
     return result_dict
-
-r = listInMedia()
-#if 'true detective' in r["tv"]:
-#    print('yes!!!')
-
 
