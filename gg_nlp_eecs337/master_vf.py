@@ -6,7 +6,6 @@ Created on Fri Feb 15 20:33:25 2019
 @author: harper
 """
 
-load_path = "./gg2013.json"
 results_path = "./results.json"
 
 import json
@@ -662,6 +661,11 @@ def theBigOne():
                                     count += 1
                                     break
         return top_ten
+
+    print('Enter the year in question: ')
+    yr_string = input()
+
+    load_path = 'gg' + yr_string +'.json'
 
     with open(load_path, "r") as file:
         print("Here is start count: " + str(count))
