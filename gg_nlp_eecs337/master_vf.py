@@ -730,6 +730,13 @@ def theBigOne():
 
     print('Enter the year in question: ')
     yr_string = input()
+    if '13' in yr_string or '15' in yr_string:
+        correct_name = '20132015name'
+    elif '18' in yr_string or '19' in yr_string:
+        correct_name = '20182019name'
+    else:
+        print("Year not recognized; assuming 2013 or 2015.")
+        correct_name = '20132015name'
 
     load_path = 'gg' + yr_string +'.json'
 
@@ -745,7 +752,7 @@ def theBigOne():
 
 
     for key in awards:
-        print(key)
+        print(awards[key][correct_name])
         if len(awards[key]['tweets']) > 0:
             if "surprise" in awards[key]['tweets']:
                 awards[key]['surprise'] = True
@@ -861,21 +868,24 @@ def theBigOne():
 
     nom = {}
     for i in awards.keys():
-        nom[i] = awards[i]['nominees']
+        award_label = awards[i][correct_name]
+        nom[award_label] = awards[i]['nominees']
 
     with open('./nominees_results.json', 'w') as fp:
         json.dump(nom, fp)
 
     win = {}
     for i in awards.keys():
-        win[i] = awards[i]['winners']
+        award_label = awards[i][correct_name]
+        win[award_label] = awards[i]['winners']
 
     with open('./winner_results.json', 'w') as fp:
         json.dump(win, fp)
 
     pres = {}
     for i in awards.keys():
-        pres[i] = awards[i]['presenters']
+        award_label = awards[i][correct_name]
+        pres[award_label] = awards[i]['presenters']
 
     with open('./presenters_results.json', 'w') as fp:
         json.dump(pres, fp)
