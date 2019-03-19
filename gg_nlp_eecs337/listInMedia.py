@@ -69,7 +69,7 @@ def listInMedia():
     StopMotionMovieNamesInjson = requests.get(url, params={'query': queryForStopMotionMovies, 'format': 'json'}).json()
     TvShowsNamesInjson = requests.get(url, params={'query': queryForTvShows, 'format': 'json'}).json()
     ActorsNamesInjson = requests.get(url, params={'query': queryForActors, 'format': 'json'}).json()
-    DirectorsNamesInjson = requests.get(url, params={'query': queryForDirectors, 'format': 'json'}).json()
+#    DirectorsNamesInjson = requests.get(url, params={'query': queryForDirectors, 'format': 'json'}).json()
     AnimatedFeatureNamesInjson = requests.get(url, params={'query': queryForAnimatedFeature, 'format': 'json'}).json()
     MiniNamesInjson = requests.get(url, params={'query': queryForMini, 'format': 'json'}).json()
     TvseasonNamesInjson = requests.get(url, params={'query': queryForTvSeason, 'format': 'json'}).json()
@@ -109,10 +109,14 @@ def listInMedia():
         tvShows_titles.append(t['tvseasonLabel']['value'].lower())
     result_dict['tv'] = tvShows_titles
 
+    return result_dict
+'''
     director_names = []
     for d in DirectorsNamesInjson['results']['bindings']:
         director_names.append(d['directorLabel']['value'].lower())
     result_dict['director'] = director_names
+'''
+    
 
-    return result_dict
-
+if __name__ == '__main__':
+  asdf = listInMedia()
