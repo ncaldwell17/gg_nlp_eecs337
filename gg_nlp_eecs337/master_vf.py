@@ -513,6 +513,7 @@ def theBigOne():
         return any(word in tweet for word in ['nomin', 'Nomin'])
 
     spacy_stopwords = list(spacy.lang.en.stop_words.STOP_WORDS)
+    spacy_stopwords2 = list(spacy.lang.en.stop_words.STOP_WORDS)
 
     missing_words = ['able', 'dear', 'got', ' let ', 'like', 'likely', 'said', ' is ',
                     'says', 'twas', 'wants', 'goldenglobes', 'golden', ' ca ',
@@ -538,13 +539,25 @@ def theBigOne():
                 'as', 'ever', 'no', 'one', 'has', 'top', 'may', 'so', 'and', 'all',
                 'are', 'aren', 'than', 'us', 'via', ' ', 'your', 'our', 'of']
 
+    go_words2 = ['a', 'i', 'go', 're', 'he', 'be', 'how', 'is', 'to', 'it', 'on',
+                'our', 'am', 'me', 'or', 'ca', 'an', 'if', 'at', 'my', 'in',
+                'as', 'ever', 'no', 'one', 'has', 'top', 'may', 'so', 'and', 'all',
+                'are', 'aren', 'than', 'us', 'via', ' ', 'your', 'our']
+
     for w in missing_words:
         if w not in spacy_stopwords:
             spacy_stopwords.append(w)
+            spacy_stopwords2.append(w)
+
 
     for w in go_words:
         while w in spacy_stopwords:
             spacy_stopwords.remove(w)
+
+    for w in go_words2:
+        while w in spacy_stopwords2:
+            spacy_stopwords2.remove(w)
+
 
     award_reader = {'tweets':''}
 
@@ -607,12 +620,14 @@ def theBigOne():
             for item in items:
                 data.append(item)
         kb = listInMedia()
-        categoryDataCleaner(data, spacy_stopwords, kb)
+        categoryDataCleaner(data, spacy_stopwords2, kb)
         clust = categoryCluster(data)
+        clust_nameonly = []
         print("The awards are: ")
         for i in clust:
             print("Award: " + str(i))
-        return clust
+            clust_nameonly.append(i[0])
+        return clust_nameonly
 
     def make_hosts(host_tweets, max_hosts=10, limit=0.7):
         data = []

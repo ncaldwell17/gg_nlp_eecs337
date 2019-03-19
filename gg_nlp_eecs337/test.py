@@ -43,8 +43,8 @@ def delete_rows_csr(mat, indices):
     return mat[mask]
 
 
-def customMode(l):
-    if len(l) < 25:
+def customMode(l,lenD):
+    if len(l) < .03 * lenD:
         return []
     else:
         d = Counter(l)
@@ -77,10 +77,10 @@ def categoryDataCleaner(data, stopwords, kb):
 def categoryCluster(data):
     cosine_similarity_threshold = .75
 
-    # data = #something will need to be here
     tfidf = [TfidfVectorizer().fit_transform(data), data]
     result_dict = {}
 
+    lenData = len(data)
     while tfidf[0].shape[0] > 1:
         cosine_similarities = linear_kernel(tfidf[0][0:1], tfidf[0]).flatten()
         related_docs_ix = cosine_similarities.argsort()[::-1]
@@ -104,7 +104,7 @@ def categoryCluster(data):
         tfidf[1] = list(numpy.delete(tfidf[1], [toDelete]))
     modelist = []
     for i in list(result_dict.keys()):
-        m = customMode(result_dict[i])
+        m = customMode(result_dict[i],data)
         if m != []:
             modelist.append((m, len(result_dict[i])))
     orderedList = sorted(modelist, key=itemgetter(1), reverse=True)
