@@ -10,14 +10,14 @@ def get_hosts(year):
     '''Hosts is a list of one or more strings. Do NOT change the name
     of this function or what it returns.'''
 
-    with open('./host_results.json') as json_file:
+    with open('./host_results' + year + '.json') as json_file:
         return json.load(json_file)
 
 def get_awards(year):
     '''Awards is a list of strings. Do NOT change the name
     of this function or what it returns.'''
 
-    with open('./awards_results.json') as json_file:
+    with open('./awards_results' + year + '.json') as json_file:
         return json.load(json_file)
 
 def get_nominees(year):
@@ -25,7 +25,7 @@ def get_nominees(year):
     names as keys, and each entry a list of strings. Do NOT change
     the name of this function or what it returns.'''
 
-    with open('./nominees_results.json') as json_file:
+    with open('./nominees_results' + year + '.json') as json_file:
         return json.load(json_file)
 
 def get_winner(year):
@@ -33,7 +33,7 @@ def get_winner(year):
     names as keys, and each entry containing a single string.
     Do NOT change the name of this function or what it returns.'''
     # Your code here
-    with open('./winner_results.json') as json_file:
+    with open('./winner_results' + year + '.json') as json_file:
         return json.load(json_file)
 
 def get_presenters(year):

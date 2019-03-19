@@ -44,7 +44,7 @@ def delete_rows_csr(mat, indices):
 
 
 def customMode(l,lenD):
-    if len(l) < .03 * lenD:
+    if float(len(l)) < .005 * float(lenD):
         return []
     else:
         d = Counter(l)
@@ -104,7 +104,7 @@ def categoryCluster(data):
         tfidf[1] = list(numpy.delete(tfidf[1], [toDelete]))
     modelist = []
     for i in list(result_dict.keys()):
-        m = customMode(result_dict[i],data)
+        m = customMode(result_dict[i],len(data))
         if m != []:
             modelist.append((m, len(result_dict[i])))
     orderedList = sorted(modelist, key=itemgetter(1), reverse=True)

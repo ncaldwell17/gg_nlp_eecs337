@@ -875,10 +875,10 @@ def theBigOne():
     list_of_awards = make_awards_data(award_reader['tweets'])
     list_of_hosts = make_hosts(host['tweets'])
 
-    with open('./host_results.json', 'w') as fp:
+    with open('./host_results' + yr_string + '.json', 'w') as fp:
         json.dump(list_of_hosts, fp)
 
-    with open('./awards_results.json', 'w') as fp:
+    with open('./awards_results' + yr_string + '.json', 'w') as fp:
         json.dump(list_of_awards, fp)
 
     nom = {}
@@ -886,7 +886,7 @@ def theBigOne():
         award_label = awards[i][correct_name]
         nom[award_label] = awards[i]['nominees']
 
-    with open('./nominees_results.json', 'w') as fp:
+    with open('./nominees_results' + yr_string + '.json', 'w') as fp:
         json.dump(nom, fp)
 
     win = {}
@@ -894,7 +894,7 @@ def theBigOne():
         award_label = awards[i][correct_name]
         win[award_label] = awards[i]['winners']
 
-    with open('./winner_results.json', 'w') as fp:
+    with open('./winner_results' + yr_string + '.json', 'w') as fp:
         json.dump(win, fp)
 
     pres = {}
